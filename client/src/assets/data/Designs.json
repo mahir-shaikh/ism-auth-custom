@@ -1,0 +1,74 @@
+{
+    "logo" : [        
+            {
+                "title": "Rio",
+                "description": "Logo for Car Interior Design Company.",
+                "name" : ["assets/images/logo_A1.png"]
+            },
+            {
+                "title": "Health Khazana",
+                "description": "Logo for a blog about healthy food. To know more please go to <a href='www.healthkhazana.com'>Health Khazana</a>",
+                "name" : ["assets/images/logo_B1.png"]
+            },
+            {
+                "title": "Stts",
+                "description": "Logo for an application which converted 'Text to Speech' to help people.",
+                "name" : ["assets/images/logo_C1.png"]
+            },
+            {
+                "title": "Trendz",
+                "description": "Logo for an e-commerce business.",
+                "name" : ["assets/images/logo_D1.png"]
+            },
+            {
+                "title": "UnTaboo",
+                "description": "Logo for a blog about Sexuality Education.To know more please go to <a href='www.untaboo.com'>UnTaboo</a>",
+                "name" : ["assets/images/logo_E1.png"]
+            },
+            {
+                "title": "Pragya Kela",
+                "description": "Logo for a jewellery brand",
+                "name" : ["assets/images/logo_F1.png"]
+            }         
+    ],
+    "poster":[
+        
+            {
+                "title": "Innovision",
+                "description": "Poster for different events at a Tech Fest.",
+                "name" : ["assets/images/poster_A1.jpg","assets/images/poster_A2.jpg","assets/images/poster_A3.jpg"]
+            },
+             {
+                "title": "Computer Assembly Workshop",
+                "description": "Poster for Computer Assembly Workshop.",
+                "name" : ["assets/images/poster_B1.jpg", "assets/images/poster_B2.jpg", "assets/images/poster_B3.jpg","assets/images/poster_B4.jpg"]
+            },
+            {
+                "title": "Abit IV",
+                "description": "Poster for Industrial Visit.",
+                "name" : ["assets/images/poster_C1.jpg"]
+            },
+            {
+                "title": "Abit Orientation",
+                "description": "Poster For Orientation.",
+                "name" : ["assets/images/poster_D1.jpg"]
+            },
+            {
+                "title": "Abit Events During College Fest",
+                "description": "Poster for different events at a Tech Fest.",
+                "name" : ["assets/images/poster_E1.jpg","assets/images/poster_E2.jpg"]
+            }
+    ],
+    "unlabled" :[
+			{
+                "title": "Zodiac",
+                "description": "Various Superhero Quotes for social media.(unfortuinately I lost all these when my PC got formatted hence the low quality)",
+                "name" : ["assets/images/unlabled_A1.jpg", "assets/images/unlabled_A2.jpg", "assets/images/unlabled_A3.jpg", "assets/images/unlabled_A4.jpg", "assets/images/unlabled_A5.jpg", "assets/images/unlabled_A6.jpg"]
+            },
+			{
+                "title": "STTS",
+                "description": "UI Design for an App.",
+                "name" : ["unlabled_B1", "unlabled_B2", "unlabled_B3"]
+            }
+    ]
+}

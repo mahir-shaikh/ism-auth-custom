@@ -1,0 +1,42 @@
+<div class="newproject-wrapper">
+  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <span class="navbar-brand col-md-3 col-lg-2 mr-0 px-3">
+      Welcome, {{user}}!
+    </span>
+    <!-- <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+      data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <ul class="navbar-nav px-3 ml-auto d-flex flex-row">
+      <li class="nav-item text-nowrap ml-3">
+        <a class="nav-link" (click)="backToProjects()">Projects</a>
+      </li>
+      <li class="nav-item text-nowrap ml-3">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">  
+      <main role="main" class="col-12 px-md-4">
+        <div class="alert alert-secondary text-center">
+          <h1>New Project</h1>
+        </div>
+        <div class="container col-12">
+          <div class="form-wrapper text-center">
+            <form class="form-newproject" (ngSubmit)="createNewProject()">
+              <!-- <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+              <label for="inputProjectName" class="sr-only">Name</label>
+              <input type="text" name="pname" id="inputProjectName" class="form-control mb-2" placeholder="Project Name" required autofocus [(ngModel)]="projectName">
+              <label for="inputProjectType" class="sr-only">Type</label>
+              <input type="text" name="ptype" id="inputProjectType" class="form-control mb-2" placeholder="Project Type" required [(ngModel)]="projectType">
+              
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</div>

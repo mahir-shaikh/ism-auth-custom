@@ -1,0 +1,67 @@
+[
+	{
+        "type": "heading",
+        "value": "May 1995"
+	},
+	{
+		"type": "content",
+		"value": {
+			"heading":"A Legend is born.",
+			"images":["assets/images/about_1.jpg"],
+			"body":[""]
+		}
+	},
+	{
+		"type": "content",
+		"value": {
+			"heading":"Birth",
+			"subheading":" 3/05/1995",
+			"body":["Born 20 Days before the Due Date"],
+			"moral":"I complete the work well before the Deadline."
+		}
+	},
+	{
+		"type": "heading",
+		"value": "2010"
+	},
+	{
+		"type": "content",
+		"value": {
+			"heading":"SSC",
+			"body":["Scored 85.27%(like you care how much i scored in SSC)","My Dream College had a cut off of 85.57 i.e. 2 marks more than I had."],
+			"moral":"I know the value of Each and Every mark and would not take anything for granted."
+		}
+	},
+	{
+		"type": "content",
+		"value": {
+			"heading":"Jr. College",
+			"body":["Could have gone to other big colleges, but selected to go to nearby small Junior college with IT Subject."],
+			"moral":"I don't mind working in Start-ups."
+		}
+	},
+	{
+		"type": "heading",
+		"value": "2012"
+	},
+	{
+		"type": "content",
+		"value": {
+			"heading":"HSC",
+			"body":["Got inspired by '3 Idiots' movie and selected engineering."],
+			"moral":"I procastinate a lot."
+		}
+	},
+	{
+		"type": "heading",
+		"value": "After Admission in Engineering."
+	},
+	{
+		"type": "content",
+		"value": {
+			"heading":"After Engineering.",
+			"body":["No idea what to write, but have to make this about page bigger."],
+			"moral":"No Moral. Still Procastinating."
+		}
+	}
+]

@@ -1,0 +1,105 @@
+<div class="admin-wrapper">
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+      <span class="navbar-brand col-md-3 col-lg-2 mr-0 px-3">
+        Welcome, {{user}}!
+      </span>
+      <!-- <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+        data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <ul class="navbar-nav px-3 ml-auto d-flex flex-row">
+        <li class="nav-item text-nowrap ml-3">
+          <a class="nav-link" (click)="backToProjects()">Projects</a>
+        </li>
+        <li class="nav-item text-nowrap ml-3">
+          <a class="nav-link" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </nav>
+  
+    <div class="container-fluid">
+      <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+          <div class="sidebar-sticky pt-3">
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Appearance</span>
+            </h6>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/project/details" routerLinkActive="active">
+                  <span class="custom-icon fa fa-info-circle"></span>
+                  Details(Logo, title, ...)
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/project/layout" routerLinkActive="active">
+                  <span class="custom-icon fa fa-home"></span>
+                  Layout
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/project/colors" routerLinkActive="active">
+                  <span class="custom-icon fa fa-file"></span>
+                  Colors
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/project/fonts" routerLinkActive="active">
+                  <span class="custom-icon fa fa-file"></span>
+                  Fonts
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/project/navigation" routerLinkActive="active">
+                  <span class="custom-icon fa fa-file"></span>
+                  Navigation
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/project/dashboard-metrics" routerLinkActive="active">
+                  <span class="custom-icon fa fa-file"></span>
+                  Dashboard Metrics
+                </a>
+              </li>
+            </ul>
+  
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Excel</span>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="'/project/model'" routerLinkActive="active">
+                  <span class="custom-icon fa fa-picture-o "></span>
+                  Model
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="'/project/content'" routerLinkActive="active">
+                  <span class="custom-icon fa fa-picture-o "></span>
+                  Content
+                </a>
+              </li>
+            </ul>
+  
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Pages</span>
+
+              <button class="ml-auto">+</button>
+            </h6>
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item" *ngFor="let page of Pages">
+                <a class="nav-link" [routerLink]="'/project/page/'" routerLinkActive="active">
+                  <span class="custom-icon fa fa-picture-o "></span>
+                  {{page}}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+  
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+          <router-outlet></router-outlet>
+        </main>
+      </div>
+    </div>
+  </div>
