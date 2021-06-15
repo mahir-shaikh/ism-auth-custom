@@ -2,32 +2,31 @@ const projects = require('express').Router();
 module.exports = projects;
 
 const dbConnect = require('../src/db-connect')
+const fsConnect = require('../src/fs-connect')
+
+const authController = require('../controllers/auth-controller')
+const projectController = require('../controllers/project-controller')
 
 // C
-projects.post('/add', (req, res)=>{
+projects.post('/add', authController.withAuthentication, (req, res)=>{
     let data = req.body
-    let newproject = {
-        name: data.name,
-        type: data.type,
-        created: new Date(),
-        updated: new Date(),
-        author: data.user._id,
-        config: data.config
-    }
-    dbConnect.addNewProject(newproject).then((project)=>{
-        res.status(200).json({success: true, message: 'New Project added to DB', data: project});
+
+    projectController.setUpNewProject(data).then((response)=>{
+        res.status(200).json(response);
     }).catch((error)=>{
-        res.json({success: false, message: 'Error Occured.', error: JSON.stringify(error)})
+        res.json(error)
     })
 })
 
 // R
+//Not used at the moment
 projects.get('/', (req, res)=>{
     dbConnect.findManyProject().then((projects)=>{
         res.status(200).json(users);
     })
 })
 
+//Not used at the moment
 projects.get('/:projectId', (req, res)=>{
     let projectId = req.params.projectId
     dbConnect.findOneProject({_id: projectId}).then((project)=>{
@@ -45,6 +44,7 @@ projects.get('/getProjectsByAuthor/:userId', (req, res)=>{
 })
 
 // U
+//Not used at the moment
 projects.put('/update/:projectId', (req, res)=>{
     const id = req.params.projectId
     const data = req.body.data;
@@ -59,18 +59,32 @@ projects.put('/update/:projectId', (req, res)=>{
 // D
 projects.delete('/delete/:projectId', (req, res)=>{
     const id = req.params.projectId
-    console.log(id)
-    dbConnect.findOneProject({_id: id}).then((project)=>{
-        if(project){
-            dbConnect.removeExistingProject(id).then(deletedProject => {
-                res.send({ success: true, message: 'Project Deleted Successfully',  response: deletedProject })
-            }).catch((err) => {
-                res.send({ success: false, message: 'Error occured while deleting the project.',  response: JSON.stringify(err) })
-            })
-        }else{
-            res.send({ success: false, message: 'Project does not exist' })
-        }
-    }).catch((err)=>{
-        res.send({ success: false, message: 'Error finding project',  response: JSON.stringify(err) })
+    projectController.deleteExistingProject(id).then((response)=>{
+        res.status(200).json(response);
+    }).catch((error)=>{
+        res.json(error)
     })
 })
+
+
+//JSON Operations
+// READ
+projects.get('/getProjectConfig/:projectId', (req, res) => {
+    const id = req.params.projectId;
+    projectController.getProjectConfiguration(id).then((response)=>{
+        res.status(200).json(response);
+    }).catch((error)=>{
+        res.json(error)
+    })
+});
+//WRITE
+projects.post('/setProjectConfig/:projectId', (req, res) => {
+    const id = req.params.projectId;
+    const data = req.body.data
+    projectController.setProjectConfiguration(id, data).then((response)=>{
+        res.status(200).json(response);
+    }).catch((error)=>{
+        res.json(error)
+    })
+});
+

@@ -5,3 +5,6 @@
 /client/node_modules
 /service/node_modules
 
+#uploads
+/service/uploads
+

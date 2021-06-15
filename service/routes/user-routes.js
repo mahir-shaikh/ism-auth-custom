@@ -1,7 +1,8 @@
 const users = require('express').Router();
 module.exports = users;
 
-const dbConnect = require('../src/db-connect')
+const dbConnect = require('../src/db-connect');
+const fsConnect = require('../src/fs-connect')
 
 
 //C
@@ -13,7 +14,11 @@ users.post('/add', (req, res)=>{
         email: data.email,
         password: data.password
     }
+
     dbConnect.addNewUser(newuser).then(()=>{
+        // Add new folder for the user 
+        // TODO: Make promise
+        fsConnect.createDirectory(data.email)
         res.status(200).json({message: 'New User added to DB'});
     }).catch((err)=>{
         res.json({message: 'Error Occured.', error: JSON.stringify(err)})
@@ -55,6 +60,9 @@ users.delete('/delete/:userId', (req, res)=>{
         console.log(user)
         if(user){
             dbConnect.removeExistingUser(id).then(deletedUser => {
+                // Delete User folder
+                // TODO: Make promise
+                fsConnect.deleteDirectory(deletedUser.email)
                 res.send({ success: true, message: 'User Deleted Successfully',  response: deletedUser })
             }).catch((err) => {
                 res.send({ success: false, message: 'Error occured while deleting the user.',  response: JSON.stringify(err) })
