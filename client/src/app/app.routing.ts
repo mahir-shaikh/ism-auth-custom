@@ -6,8 +6,25 @@ import { AuthGuard } from './guards/auth.guard';
 import { UserDashboardComponent } from './views/user-dashboard/user-dashboard.component';
 import { ProjectGuard } from './guards/project.guard';
 import { NewProjectComponent } from './views/new-project/new-project.component';
+import { ColorManagementComponent } from './views/color-management/color-management.component';
 
 const appRoutes: Routes = [
+    {
+        path : "project",
+        component: ProjectDashboardComponent,
+        canActivate: [AuthGuard, ProjectGuard],
+        children:[
+            {
+                path: '',
+                redirectTo: 'details',
+                pathMatch: 'full'
+            },
+            {
+                path: 'colors',
+                component: ColorManagementComponent
+            },
+        ]
+    },
     {
         path : "project-dashboard",
         component : ProjectDashboardComponent,
@@ -29,7 +46,7 @@ const appRoutes: Routes = [
     },
     {
         path : "",
-        redirectTo : "/project-dashboard",
+        redirectTo : "/project",
         pathMatch : "full"
     },
     {

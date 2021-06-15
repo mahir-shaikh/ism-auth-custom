@@ -1,4 +1,4 @@
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 //To maintain proper moduler structure declare and export all component in this module and import this module in root module
 
@@ -9,15 +9,23 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { NewProjectComponent } from './new-project/new-project.component';
+import { ColorManagementComponent } from './color-management/color-management.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-    imports: [RouterModule, CommonModule, FormsModule],
+    imports: [
+        RouterModule, 
+        CommonModule, 
+        FormsModule,
+        SharedModule
+    ],
     exports: [
         NewProjectComponent,
         UserDashboardComponent,
         ProjectDashboardComponent,
         PageNotFoundComponent,
-        LoginComponent
+        LoginComponent,
+        ColorManagementComponent
     ],
 
     declarations: [
@@ -25,8 +33,9 @@ import { NewProjectComponent } from './new-project/new-project.component';
         UserDashboardComponent,
         ProjectDashboardComponent,
         PageNotFoundComponent,
-        LoginComponent
-],
+        LoginComponent,
+        ColorManagementComponent
+    ],
     providers: [],
 })
 export class ViewModule { }

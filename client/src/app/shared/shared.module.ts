@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { AlertComponent } from './alert/alert.component';
 import { ToggleComponent } from './toggle/toggle.component';
 import { ContenteditableModelDirective } from './ContenteditableModel.directive';
+import { InventoryCardComponent } from './inventory-card/inventory-card.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   imports: [
@@ -11,12 +13,16 @@ import { ContenteditableModelDirective } from './ContenteditableModel.directive'
   declarations: [
     AlertComponent,
     ToggleComponent,
-    ContenteditableModelDirective
+    ContenteditableModelDirective,
+    InventoryCardComponent,
+    HeaderComponent
   ],
   exports: [
     AlertComponent,
     ToggleComponent,
-    ContenteditableModelDirective
+    ContenteditableModelDirective,
+    InventoryCardComponent,
+    HeaderComponent
   ],
   providers: []
 })

@@ -42,7 +42,7 @@ export class NewProjectComponent implements OnInit {
           this.alertService.success("New Project created successfully", {autoClose: true, keepAfterRouteChange: true})
           let project = res.data
           this.projectService.setActiveProjectId = project._id;
-          this.router.navigateByUrl('/project-dashboard');
+          this.router.navigate(['/project']);
         } else {
           this.alertService.error(res.message)
           console.log(res.error)

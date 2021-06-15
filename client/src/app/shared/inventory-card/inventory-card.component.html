@@ -1,0 +1,13 @@
+<div class="inventory-card">
+    <div *ngIf="headerText" class="inventory-card-header">
+        <div>
+            <span *ngIf="headerText">{{headerText}}</span>
+        </div>
+        <div>
+            <ng-content select="[header]"></ng-content>
+        </div>
+    </div>
+    <div class="inventory-card-content">
+        <ng-content select="[content]"></ng-content>
+    </div>
+</div>

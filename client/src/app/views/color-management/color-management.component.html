@@ -1,0 +1,38 @@
+<div class="animate__fadeIn animate animate__animated">
+  <ism-inventory-card [headerText]="'Colors'">
+      <ng-container content>
+        <fieldset class="inv-fieldSet" *ngFor="let obj of colorsObj | keyvalue" [ngClass]="{'col-xl-4 col-lg-7 col-md-12': obj.key == '3. Other-Defaults'}">
+          <legend class="inv-legend">{{obj.key}}</legend>
+          <div class="row inv-categories" [hidden]="obj.key == '3. Other-Defaults'">
+            <div class="col-12 col-sm-12 col-md-6 col-xl-4 inv-category" *ngFor="let category of obj.value | keyvalue ">
+              <p class="inv-category-name">{{category.key | titlecase}}</p>
+              <div class="inv-category-group-wrapper">
+                <div class="col-6 col-sm-4 col-md-6 col-lg-3 inv-category-group" *ngFor="let item of category.value">
+                  <div class="inv-group-cell" [style.background-color]="item.color ? item.color : 'white'">
+                    <div class="inv-group-cell-text" [style.color]="item.textColor ? item.textColor : 'white'">
+                      {{item.color}}
+                    </div>
+                    <input class="inv-group-cell-colorpicker" (change)="updateColor(item.name, colorPicker.value)" type="color" [value]="item.color" *ngIf="item.isEditable" #colorPicker>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row inv-categories" [hidden]="obj.key != '3. Other-Defaults'">
+            <div class="col-12 inv-category" *ngFor="let category of obj.value | keyvalue ">
+              <p class="inv-category-name">{{category.key | titlecase}}</p>
+              <div class="inv-category-group-wrapper">
+                <div class="col-6 col-sm-4 col-md-3 inv-category-group" *ngFor="let item of category.value">
+                  <div class="inv-group-cell" [style.background-color]="item.color ? item.color : 'white'">
+                    <div class="inv-group-cell-text" [style.color]="item.textColor ? item.textColor : 'white'">
+                      {{item.color}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </ng-container>
+  </ism-inventory-card>
+</div>

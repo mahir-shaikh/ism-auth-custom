@@ -6,6 +6,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class ProjectService {
+  projectConfig;
   activeProjectId;  
   public get getActiveProjectId() {
     return this.activeProjectId
@@ -13,6 +14,12 @@ export class ProjectService {
   public set setActiveProjectId(v) {
     this.activeProjectId = v;
     localStorage.setItem('ProjectId', v)
+    // fetch config
+    if(v != null){
+      this.getConfig()
+    }else{
+      this.projectConfig = null;
+    }
   }
 
   constructor(
@@ -41,5 +48,43 @@ export class ProjectService {
   deleteProject(_id){
     return this.httpWrapper.delete("/projects/delete/"+_id);
   }
+
+  getConfig(){
+    this.httpWrapper.getJson("/projects/getProjectConfig/"+this.activeProjectId, null).then((response)=>{
+      if(response.success){
+        this.projectConfig = response.response
+      }
+    })
+  }
+
+  setConfig(){
+    this.httpWrapper.postJson("/projects/setProjectConfig/"+this.activeProjectId, {data: this.projectConfig})
+  }
+
+  getColors(){
+    return this.projectConfig && this.projectConfig.colors ? this.projectConfig.colors : null;
+  }
+
+  setColors(data){
+    this.projectConfig.colors = data;
+    this.setConfig()
+  }
+
+  getLayout(){
+
+  }
+
+  setLayout(){
+
+  }
+
+  getDetails(){
+
+  }
+
+  setDetails(){
+
+  }
+
 
 }

@@ -1,0 +1,11 @@
+{
+    "primary": "#CA1C68",
+    "secondary": "#1D7279",
+    "tertiary1": "#4C3480",
+    "tertiary2": "#E63F50",
+    "tertiary3": "#1C4C87",
+    "error": "#DA1E28",
+    "success": "#24A148",
+    "warning": "#FDD13A",
+    "note": "#4589FF"
+}

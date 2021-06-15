@@ -44,7 +44,7 @@ export class UserDashboardComponent implements OnInit {
 
   onProjectSelect(id){
     this.projectService.setActiveProjectId = id;
-    this.router.navigate(["/project-dashboard"])
+    this.router.navigate(["/project"])
   }
 
   deleteProject(id){

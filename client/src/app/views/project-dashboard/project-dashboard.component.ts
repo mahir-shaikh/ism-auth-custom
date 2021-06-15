@@ -22,11 +22,6 @@ export class ProjectDashboardComponent implements OnInit {
     // this.pages = this.
   }
 
-  logout(){
-    this.authService.logout()
-    this.router.navigate(["/login"])
-  }
-
   backToProjects(){
     this.projectService.setActiveProjectId = null
     this.router.navigate(["/user-dashboard"])
