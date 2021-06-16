@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const busboy = require('connect-busboy');
 
 const publicDir = require('path').join(__dirname,'/uploads'); 
 
@@ -14,6 +15,7 @@ const app = express();
 app.use(cors({ origin: '*' }));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(cookieParser());
+app.use(busboy());
 app.use(express.static(publicDir)); 
 
 //  Connect all our routes to our application
