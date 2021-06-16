@@ -5,18 +5,22 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { ProjectDashboardComponent } from './project-dashboard/project-dashboard.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { NewProjectComponent } from './new-project/new-project.component';
 import { ColorManagementComponent } from './color-management/color-management.component';
 import { SharedModule } from '../shared/shared.module';
+import { DetailsManagementComponent } from './details-management/details-management.component';
+import { ImageUploadComponent } from './details-management/image-upload/image-upload.component';
+import { ImageViewerComponent } from './details-management/image-viewer/image-viewer.component';
 
 @NgModule({
     imports: [
         RouterModule, 
         CommonModule, 
         FormsModule,
+        ReactiveFormsModule,
         SharedModule
     ],
     exports: [
@@ -25,7 +29,8 @@ import { SharedModule } from '../shared/shared.module';
         ProjectDashboardComponent,
         PageNotFoundComponent,
         LoginComponent,
-        ColorManagementComponent
+        ColorManagementComponent,
+        DetailsManagementComponent,
     ],
 
     declarations: [
@@ -34,7 +39,10 @@ import { SharedModule } from '../shared/shared.module';
         ProjectDashboardComponent,
         PageNotFoundComponent,
         LoginComponent,
-        ColorManagementComponent
+        ColorManagementComponent,
+        DetailsManagementComponent,
+        ImageUploadComponent,
+        ImageViewerComponent
     ],
     providers: [],
 })

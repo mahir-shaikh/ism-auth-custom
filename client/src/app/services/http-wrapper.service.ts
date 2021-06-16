@@ -37,12 +37,13 @@ export class HttpWrapperService {
       catchError((error: any) => error));
   }
 
-  postJson(relativeUrl: string, body): Promise<any> {
+  postJson(relativeUrl: string, body, optionalHeaders = {}): Promise<any> {
     let req: any;
 
     const token = this.authService.getToken();
     const headers: HttpHeaders = new HttpHeaders({
-      'Authorization': token
+      'Authorization': token,
+      ...optionalHeaders
     });
     req = this.http.post(this.hostname + relativeUrl, body, { headers: headers }).pipe(map((res) => res));
     

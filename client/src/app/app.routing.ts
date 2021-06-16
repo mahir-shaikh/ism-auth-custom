@@ -7,6 +7,7 @@ import { UserDashboardComponent } from './views/user-dashboard/user-dashboard.co
 import { ProjectGuard } from './guards/project.guard';
 import { NewProjectComponent } from './views/new-project/new-project.component';
 import { ColorManagementComponent } from './views/color-management/color-management.component';
+import { DetailsManagementComponent } from './views/details-management/details-management.component';
 
 const appRoutes: Routes = [
     {
@@ -18,6 +19,10 @@ const appRoutes: Routes = [
                 path: '',
                 redirectTo: 'details',
                 pathMatch: 'full'
+            },
+            {
+                path: 'details',
+                component: DetailsManagementComponent
             },
             {
                 path: 'colors',
